@@ -1,5 +1,9 @@
 function sayHi(name) {
-  return `Hello there ${name}`
+  return `Hello ${name}`
 }
 
 module.exports = sayHi
+
+// The new comment
+// second commit
+// trivial edit
