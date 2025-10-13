@@ -1,6 +1,6 @@
 // Here is a comment by DEMOXYL
 function sayHi(name) {
-  return `Hello there ${name}`
+  return "Hello Mike"
 }
 
 module.exports = sayHi
