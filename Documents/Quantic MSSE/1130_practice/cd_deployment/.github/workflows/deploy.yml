@@ -1,0 +1,9 @@
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # ...other steps like checking out code, building, etc.
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # configuration options here
