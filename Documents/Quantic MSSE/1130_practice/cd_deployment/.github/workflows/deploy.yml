@@ -11,7 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Add your build step here, for example:
       - name: Build
         run: npm run build
 
