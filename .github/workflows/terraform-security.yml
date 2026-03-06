@@ -1,0 +1,56 @@
+# .github/workflows/terraform-security.yml
+name: Terraform Security Scan
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  security-events: write  # Required to upload SARIF to GitHub Security tab
+
+jobs:
+  checkov:
+    name: Checkov IaC Scan
+    runs-on: ubuntu-lates
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Checkov
+        uses: bridgecrewio/checkov-action@v12
+        with:
+          directory: .
+          framework: terraform
+          output_format: sarif
+          output_file_path: results.sarif
+          soft_fail: true  # Don't block PRs until baseline is set
+
+      - name: Upload SARIF to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        continue-on-error: true
+        with:
+          sarif_file: results.sarif
+
+  tflint:
+    name: TFLint
+    runs-on: atc-ubuntu-22.04-v6
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: terraform-linters/setup-tflint@v6
+        name: Setup TFLint
+        with:
+          tflint_version: v0.55.0
+          cache: true
+
+      - name: Init TFLint (AWS plugin)
+        run: tflint --init
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_RUNNER_PAT }}
+
+      - name: Run TFLint
+        run: tflint --recursive --format compact
