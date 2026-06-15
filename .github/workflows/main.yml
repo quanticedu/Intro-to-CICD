@@ -1,20 +1,29 @@
 name: CI
 
-on: push
+on:
+  push:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: test-app
     steps:
-      # checks out the current git commit so we can use it.
-      # read more at https://github.com/orgs/community/discussions/25682
       - uses: actions/checkout@v4
-      - name: Run a one-line script
-        run: echo "Write your CI workflow here!"
-  
+      - name: Install dependencies
+        run: npm install
+      - name: Build app
+        run: npm run build
+
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: test-app
     steps:
       - uses: actions/checkout@v4
-      - name: Test the code
-        run: echo "Replace this with the test code"
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: npm test -- --watchAll=false
