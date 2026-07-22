@@ -2,4 +2,4 @@ function sayHi(name) {
   return `Hello there ${name}`
 }
 
-module.exports = sayHi
+module.exports = sayHi //this is cool
