@@ -1,6 +1,6 @@
 function sayHi(name) {
   // Greet the user by name
-  return `Hello there ${name}`
+  return `Hello ${name}`
 }
 
 module.exports = sayHi
