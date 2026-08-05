@@ -1,5 +1,7 @@
-function sayHi(name) { 
-  // here is a comment
+
+//here is a coment
+ function sayHi(name) { 
+
   return `Hello there ${name}`
 }
 
