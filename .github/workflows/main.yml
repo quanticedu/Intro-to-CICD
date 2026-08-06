@@ -13,6 +13,7 @@ jobs:
         run: echo "Write your CI workflow here!"
   
   test:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
