@@ -3,3 +3,5 @@ function sayHi(name) {
 }
 
 module.exports = sayHi
+
+// This is a trivial change for demonstration purposes.
