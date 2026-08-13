@@ -3,5 +3,3 @@ function sayHi(name) {
 }
 
 module.exports = sayHi
-
-This code exercise is tedious.
