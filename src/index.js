@@ -5,4 +5,4 @@ function sayHi(name) {
 
 module.exports = sayHi
 
-/*trivial edit*/
+/*trivial edit expanded.*/
