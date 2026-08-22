@@ -3,3 +3,4 @@ function sayHi(name) {
 }
 
 module.exports = sayHi
+  #  adding a comment to the code
