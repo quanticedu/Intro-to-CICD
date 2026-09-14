@@ -3,3 +3,4 @@ function sayHi(name) {
 }
 
 module.exports = sayHi
+//add generic code comment for commit purposes
