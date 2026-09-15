@@ -4,3 +4,9 @@ function sayHi(name) {
 }
 
 module.exports = sayHi
+//adding a new function to say goodbye
+function sayGoodbye(name) {
+  return `Goodbye ${name}`
+}
+
+module.exports.sayGoodbye = sayGoodbye
