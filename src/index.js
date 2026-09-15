@@ -1,4 +1,4 @@
-// Here's a comment about the function below
+// Here's a new comment about the function below
 function sayHi(name) {
   return `Hello there ${name}`
 }
